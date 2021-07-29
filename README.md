@@ -10,7 +10,7 @@
   </p>
   <br />
   <p align="center">
-  ⚡ A fast tool written in C++ to fetch some OS info
+  ⚡  A fast tool written in C++ to fetch some OS info
   <br />
   <a href="https://github.com/corruptmemry/xfetch/issues">Report bug</a>
   .
