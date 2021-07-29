@@ -3,4 +3,6 @@ dist: xenial
 os: linux
 compiler:
     - gcc
-    - clang
+
+script:
+    - make
