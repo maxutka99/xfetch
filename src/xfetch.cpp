@@ -6,7 +6,7 @@
 #include <cstdio>
 #include "config.h"
 
-std::string exec(const char* cmd) {
+std::string exec(const char* cmd){
     std::shared_ptr<FILE> pipe(popen(cmd, "r"), pclose);
     if (!pipe) return "ERROR";
     char buffer[128];
