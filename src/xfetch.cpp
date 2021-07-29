@@ -36,9 +36,6 @@ int GetRamInKB(void)
             return ram;
         }
     }
-
-    // If we got here, then we couldn't find the proper line in the meminfo file:
-    // do something appropriate like return an error code, throw an exception, etc.
     fclose(meminfo);
     return -1;
 }
