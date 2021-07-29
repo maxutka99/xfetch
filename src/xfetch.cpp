@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <cstdio>
+#include "config.h"
 
 std::string exec(const char* cmd) {
     std::shared_ptr<FILE> pipe(popen(cmd, "r"), pclose);
@@ -36,19 +37,23 @@ int GetRamInKB(void)
             return ram;
         }
     }
+
+    // If we got here, then we couldn't find the proper line in the meminfo file:
+    // do something appropriate like return an error code, throw an exception, etc.
     fclose(meminfo);
     return -1;
 }
 
 int main(){
     kernel();
-    printf("     ___           \033[0;35mUSER \033[0;m%s", user());
-    printf("\n ___/   \\___     \033[0;35m    OS \033[0;m%s", exec("awk -F= '$1==\"NAME\" { print $2 ;}' /etc/os-release").c_str());
-    printf("/   '---'   \\     \033[0;35mKERNEL \033[0;m%s", buffer.release);
-    printf("\n'--_______--'      \033[0;35mSHELL \033[0;m%s", shell());
-    printf("\n\033[1;32m     / \\\\         \033[0;35mUPTIME \033[0;m%s%s", uptime(), "h");
-    printf("\n\033[1;32m    /   \\\\        \033[0;35m   RAM \033[0;m%s%s", std::to_string(GetRamInKB() / 1024).c_str(), "MiB \033[1;32m");
-    printf("\n   /     \\\\   ");
+    printf("%s\033[0;35mUSER \033[0;m%s", ascii[0], user());
+    printf("\n%s\033[0;35m    OS \033[0;m%s", ascii[1] , exec("awk -F= '$1==\"NAME\" { print $2 ;}' /etc/os-release").c_str());
+    printf("%s\033[0;35mKERNEL \033[0;m%s", ascii[2], buffer.release);
+    printf("\n%s\033[0;35mSHELL \033[0;m%s", ascii[3], shell());
+    printf("\n%s\033[0;35mUPTIME \033[0;m%s%s", ascii[4], uptime(), "h");
+    printf("\n%s\033[0;35m   RAM \033[0;m%s%s", ascii[5], std::to_string(GetRamInKB() / 1024).c_str(), "MiB \033[1;32m");
+    printf("\n%s", ascii[6]);
+    printf("\n%s", ascii[7]); // all remaining chars
 
     return 0;
 }
