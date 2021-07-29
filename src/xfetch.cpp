@@ -46,8 +46,8 @@ int GetRamInKB(void)
 
 int main(){
     kernel();
-    printf("%s\033[0;35mUSER \033[0;m%s", ascii[0], user());
-    printf("\n%s\033[0;35m    OS \033[0;m%s", ascii[1] , exec("awk -F= '$1==\"NAME\" { print $2 ;}' /etc/os-release").c_str());
+    printf("%s\033[0;35m USER \033[0;m%s", ascii[0], user());
+    printf("\n%s\033[0;35m     OS \033[0;m%s", ascii[1] , exec("awk -F= '$1==\"NAME\" { print $2 ;}' /etc/os-release").c_str());
     printf("%s\033[0;35mKERNEL \033[0;m%s", ascii[2], buffer.release);
     printf("\n%s\033[0;35mSHELL \033[0;m%s", ascii[3], shell());
     printf("\n%s\033[0;35mUPTIME \033[0;m%s%s", ascii[4], uptime(), "h");
