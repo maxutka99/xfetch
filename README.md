@@ -6,7 +6,7 @@
 </p>
 <br />
 <p align="center">
-  <img align="center" src="https://travis-ci.com/corruptmemry/xfetch.svg?branch=master"><h3 align="center">xfetch</h3></img> (it's failing because travis.yml didn't updated)
+  <img align="center" src="https://travis-ci.com/corruptmemry/xfetch.svg?branch=master"><h3 align="center">xfetch</h3></img> <h4>(it's failing because travis.yml didn't updated)</h4>
   </p>
   <br />
   <p align="center">
