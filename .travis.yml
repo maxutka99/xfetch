@@ -1,3 +1,6 @@
 language: cpp
+dist: xenial
+os: linux
 compiler:
-  - gcc
+    - gcc
+    - clang
