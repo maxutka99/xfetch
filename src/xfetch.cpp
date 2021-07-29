@@ -53,7 +53,6 @@ int main(){
     printf("\n%s\033[0;35mUPTIME \033[0;m%s%s", ascii[4], uptime(), "h");
     printf("\n%s\033[0;35m   RAM \033[0;m%s%s", ascii[5], std::to_string(GetRamInKB() / 1024).c_str(), "MiB \033[1;32m");
     printf("\n%s", ascii[6]);
-    printf("\n%s", ascii[7]); // all remaining chars
-
+    printf("\n%s", ascii[7]);
     return 0;
 }
