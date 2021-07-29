@@ -24,5 +24,12 @@ $ make
 $ make install
 ```
 
+# Build requirements
+- make
+- g++
+
+# Runtime requirements
+- Awk
+
 # Screenshot
 ![image](https://user-images.githubusercontent.com/88046785/127446895-5e9f4831-4276-462d-80d6-3810259fa26a.png)
