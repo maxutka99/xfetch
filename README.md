@@ -3,6 +3,7 @@
 <img src="https://img.shields.io/github/forks/corruptmemry/xfetch.svg?style=for-the-badge"/>
 <img src="https://img.shields.io/github/stars/corruptmemry/xfetch.svg?style=for-the-badge"/>
 <img src="https://img.shields.io/github/issues/corruptmemry/xfetch.svg?style=for-the-badge"/>
+<img src="https://travis-ci.com/corruptmemry/xfetch.svg?branch=master?style=for-the-badge"/>
 </p>
 <br />
   <h3 align="center">xfetch</h3>
