@@ -5,7 +5,9 @@
 <img src="https://img.shields.io/github/issues/corruptmemry/xfetch.svg?style=for-the-badge"/>
 </p>
 <br />
+<p align="center">
   <img align="center" src="https://travis-ci.com/corruptmemry/xfetch.svg?branch=master"><h3 align="center">xfetch</h3></img> (it's failing because travis.yml didn't updated)
+  </p>
   <br />
   <p align="center">
   ⚡ A fast tool written in C++ to fetch some OS info
