@@ -30,5 +30,11 @@ $ make install
 ```
 $ xfetch
 ```
+# Customizing
+### ASCII Art
+In config.h change all lines in array "ascii" to your
+### Text
+In config.h change first 6 lines to your
+
 # Screenshot
 ![image](https://user-images.githubusercontent.com/88046785/127480725-d8011f99-9248-467e-b47d-efec13478b38.png)
