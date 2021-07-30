@@ -5,8 +5,7 @@
 #include <memory>
 #include <cstdio>
 #include "config.h"
-
-std::string exec(const char* cmd){
+std::string exec(const char* cmd) {
     std::shared_ptr<FILE> pipe(popen(cmd, "r"), pclose);
     if (!pipe) return "ERROR";
     char buffer[128];
@@ -17,7 +16,13 @@ std::string exec(const char* cmd){
     }
     return result;
 }
+
+const char* osName;
+
+
 struct utsname buffer;
+
+char* color = "\u001b[32m";
 
 char* user(){ return getenv("USER");}
 char* shell(){ char *shell = getenv("SHELL"); char *slash = strrchr(shell, '/'); if (slash) { shell = slash + 1;} return shell; }
@@ -46,12 +51,14 @@ int GetRamInKB(void)
 
 int main(){
     kernel();
-    printf("%s\033[0;35m USER \033[0;m%s", ascii[0], user());
-    printf("\n%s\033[0;35m     OS \033[0;m%s", ascii[1] , exec("awk -F= '$1==\"NAME\" { print $2 ;}' /etc/os-release").c_str());
-    printf("%s\033[0;35mKERNEL \033[0;m%s", ascii[2], buffer.release);
-    printf("\n%s\033[0;35mSHELL \033[0;m%s", ascii[3], shell());
-    printf("\n%s\033[0;35mUPTIME \033[0;m%s%s", ascii[4], uptime(), "h");
-    printf("\n%s\033[0;35m   RAM \033[0;m%s%s", ascii[5], std::to_string(GetRamInKB() / 1024).c_str(), "MiB \033[1;32m");
+    osName = exec("awk -F= '$1==\"NAME\" { print $2 ;}' /etc/os-release").c_str();
+    if(strcmp(osName, "Gentoo")) { color = "\u001b[35m"; } else if(strcmp(osName, "Ubuntu") || strcmp(osName, "Debian GNU/Linux")){ color = "\u001b[31m"; }  else if(strcmp(osName, "void")){ color = "\u001b[32m"; } else if(strcmp(osName, "Arch Linux")){ color = "\u001b[36;1m"; } else if(strcmp(osName, "Manjaro")){ color = "\u001b[32;1m"; }
+    printf("%s%s%s \033[0;m%s", ascii[0], color, userText, user());
+    printf("\n%s%s%s \033[0;m%s", ascii[1], color, osText, osName);
+    printf("%s%s%s \033[0;m%s", ascii[2], color, kernelText, buffer.release);
+    printf("\n%s%s%s \033[0;m%s", ascii[3], color, shellText, shell());
+    printf("\n%s%s%s \033[0;m%s%s", ascii[4], color, uptimeText, uptime(), "h");
+    printf("\n%s%s%s \033[0;m%s%s", ascii[5], color, ramText, std::to_string(GetRamInKB() / 1024).c_str(), "MiB \033[1;32m");
     printf("\n%s", ascii[6]);
     printf("\n%s", ascii[7]);
     return 0;
